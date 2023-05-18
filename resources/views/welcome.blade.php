@@ -17,12 +17,14 @@
     </head>
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-                <div>
-                <h1>ToDo List</h1>
-
+            <div style="color:white;">
+                <h1 >ToDo List</h1>
+                <form method="post" action="{{ route('saveItem') }}" accept-charset="UTF-8">
+                {{ csrf_field() }}
                 <label for="listItem">New ToDo List</label><br>
                 <input type="text" name="listItem"><br>
-                </div>
+                <button type="submit">Save Item</button>
+            </div>
         </div>
     </body>
 </html>

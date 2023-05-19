@@ -9,7 +9,9 @@ class TodoListController extends Controller
 {
     public function index(Request $request)
     {
-        return view('welcome', ['listItems' => ListItem::all()]);
+       // return view('welcome', ['listItems' => ListItem::all()]);
+    return view('welcome', ['listItems' => ListItem::where("is_complete", 0) ->get()]);
+
     }
     public function saveItem(Request $request)
     {
@@ -27,6 +29,17 @@ class TodoListController extends Controller
         return redirect('/');
 
     }
+
+    public function markComplete($id)
+    {
+        // \log::info($id);
+        $listItem = ListItem::find($id);
+        $listItem->is_complete = 1;
+        $listItem->save();
+        // \Log::info($listItem);
+        return redirect('/');
+
+    }
 }
 
 /* [1] Error ->
@@ -36,3 +49,4 @@ class TodoListController extends Controller
     VALUES
     (?, 0, 2023 -05 -19 13: 51: 57, 2023 -05 -19 13: 51: 57)
 */
+

@@ -28,3 +28,4 @@ Route::post('/saveItem', function () {
 })->name("saveItem");
 */
 Route::post('/saveItemRoute', [TodoListController::class, 'saveItem'])->name("saveItem");
+Route::post('/markCompleteRoute{id}', [TodoListController::class, 'markComplete'])->name("markComplete");

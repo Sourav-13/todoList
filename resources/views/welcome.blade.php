@@ -18,7 +18,17 @@
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             <div style="color:white;">
-                <h1 >ToDo List</h1>
+                <h1 style="color:white; font-size:50px">ToDo List</h1>
+
+
+                @foreach($listItems as $listItem)
+                <div class="flex" style="align-items: center;"> 
+                <p>Item: {{ $listItem->name }}</p>
+                <button type="submit" style="max-height: 25px; margin-left: 20px;">Mark Completed</button>
+                </div>
+                @endforeach
+                <br>
+
                 <form method="post" action="{{ route('saveItem') }}" accept-charset="UTF-8">
                 {{ csrf_field() }}
                 <label for="listItem">New ToDo List</label><br>

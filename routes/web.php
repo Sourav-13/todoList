@@ -14,10 +14,14 @@ use App\Http\Controllers\TodoListController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::get('/', [TodoListController::class, 'index']);
+
 /*
 Route::post('/saveItem', function () {
     return view('welcome');
